@@ -1,0 +1,100 @@
+@startuml hello
+class School 
+{
+    .. getters ..
+    + getName()
+    + getAddreas()
+    + getBudget()
+    .. setters ..
+    + setName()
+    + setAddreas()
+    + setBudget()
+    .. private data ..
+    string addreas
+    string name
+    int budget
+}
+class Students
+{
+    .. getters ..
+    + getNumberOfStudents()
+    + getStudentByName()
+    + getClassStudent()
+    .. methods ..
+    + addStudent ()
+    + kickStudent ()
+    .. private data ..
+    Student students[];  
+    string name
+    int numberOfStudents
+}
+class Stuff
+{
+    .. getters ..
+    + getNumberOfStuff()
+    + getSuffByName()
+    .. methods ..
+    + addStuff ()
+    + kickStuff ()
+    .. private data ..
+    Teaching teachers
+    Services services
+    Managements managements
+}
+class Services
+{
+    .. getters ..
+    + getNumberOfServicesStuff()
+    + getServicesStuffByName()
+    .. methods ..
+    + addServicesStuff ()
+    + kickServicesStuff ()
+    .. private data ..
+    Employee servicesStuff[];  
+}
+class Teaching
+{
+    .. getters ..
+    + getNumberOfTeachingStuff()
+    + getTeachingStuffByName()
+    .. methods ..
+    + addTeachingStuff ()
+    + kickTeachingStuff ()
+    .. private data ..
+    Employee teachingStuff[];  
+}
+class Managements
+{
+    .. getters ..
+    + getNumberOfManagementsStuff()
+    + getManagementsStuffByName()
+    .. methods ..
+    + addManagementsStuff ()
+    + kickManagementsStuff ()
+    .. private data ..
+    Employee managementsStuff[];  
+}
+struct Student
+{
+    + string name
+    + int class
+    + string gender
+}
+struct Employee
+{
+    + string name
+    + String job
+    + string gender
+    + int Sallary
+}
+
+School ..|> Students : contains
+School ..|> Stuff : contains
+Stuff ..|> Services : job field
+Stuff ..|> Teaching : job field
+Stuff ..|> Managements : job field
+Students .. Student
+Services .. Employee
+Teaching .. Employee
+Managements .. Employee
+@enduml
